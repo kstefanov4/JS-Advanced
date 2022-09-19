@@ -5,17 +5,16 @@ function cityTaxes(name,population, treasury){
         treasury,
         taxRate: 10,
         collectTaxes(){
-            Math.floor(this.treasury += this.population * this.taxRate);
+            this.treasury += this.population * this.taxRate;
         },
         applyGrowth(percentage){
-            Math.floor(this.population += this.population * percentage / 100);
+            this.population += Math.floor(this.population * percentage / 100);
         },
         applyRecession(percentage){
-            Math.floor(this.population -= this.population * percentage / 100);
+            this.treasury -= Math.floor(this.treasury * percentage / 100);
         }
     }
-}
-
+} 
 
 const city =
   cityTaxes('Tortuga',
