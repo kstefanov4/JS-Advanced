@@ -3,8 +3,8 @@ function solve() {
 
    function onClick() {
       let inputText = JSON.parse(document.querySelector("#inputs textarea").value);
-
-      let theBestRestaurant = getTheBestRestaurant(getAllRestaurants(inputText));
+      let allRestaurants = getAllRestaurants(inputText);
+      let theBestRestaurant = getTheBestRestaurant(allRestaurants);
 
       outputs(theBestRestaurant);
    }
