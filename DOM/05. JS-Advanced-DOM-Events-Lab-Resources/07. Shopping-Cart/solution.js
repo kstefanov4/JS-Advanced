@@ -1,5 +1,5 @@
 function solve() {
-   let elements =Array.from(document.getElementsByClassName('add-product'));
+   let elements = Array.from(document.getElementsByClassName('add-product'));
    console.log(elements)
 
    for (const element of elements) {
@@ -38,6 +38,13 @@ function solve() {
       let currentAdded = document.getElementsByTagName('textarea')[0].value;
       currentAdded += `You bought ${addedProducts.join(', ')} for ${totalPrice.toFixed(2)}.`
       document.getElementsByTagName('textarea')[0].value = currentAdded;
+
+      let allbuttons =Array.from(document.getElementsByTagName('button'));
+
+      for (const button of allbuttons) {
+         button.disabled = 'disabled';
+      }
+
    }
 
 }
