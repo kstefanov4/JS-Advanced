@@ -1,25 +1,21 @@
 function lockedProfile() {
-   let buttons =Array.from(document.getElementsByTagName('button'));
-
-    for (const button of buttons) {
-        button.addEventListener('click', action);
-
-    }
+   Array.from(document.getElementsByTagName('button'))
+   .forEach(e => e.addEventListener('click',action));
 
     function action(event){
-        
-        if (event.target.parentElement.children[4].checked == true){
-            if(event.target.parentElement.children[10].textContent == 'Hide it'){
-                event.target.parentElement.children[9].style.display = 'none';
-                event.target.parentElement.children[10].textContent = 'Show more'
+        let parentElement = event.target.parentElement;
+
+        if (parentElement.querySelector('input[type="radio"][value="unlock"]').checked == true){
+            if(parentElement.getElementsByTagName('button')[0].textContent == 'Hide it'){
+                parentElement.getElementsByTagName('div')[0].style.display = 'none';
+                parentElement.getElementsByTagName('button')[0].textContent = 'Show more'
                 return;
             }
 
-            console.log(event.target.parentElement)
-            event.target.parentElement.children[9].style.display = 'inline-block';
+            parentElement.getElementsByTagName('div')[0].style.display = 'inline-block';
             
-            if (event.target.parentElement.children[9].style.display == 'inline-block'){
-                event.target.parentElement.children[10].textContent = 'Hide it'
+            if (parentElement.getElementsByTagName('div')[0].style.display == 'inline-block'){
+                parentElement.getElementsByTagName('button')[0].textContent = 'Hide it'
             }
         }
     }
