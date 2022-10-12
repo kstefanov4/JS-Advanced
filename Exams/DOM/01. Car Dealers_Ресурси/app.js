@@ -1,9 +1,7 @@
 window.addEventListener("load", solve);
 
 function solve() {
-  
   let profit = 0;
-
   const input = {
     make: document.getElementById('make'),
     model: document.getElementById('model'),
