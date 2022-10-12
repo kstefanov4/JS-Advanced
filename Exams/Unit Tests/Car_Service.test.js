@@ -1,4 +1,4 @@
-let carService = require('./car_service');
+let carService = require('./03. Car Service_Resources');
 const expect = require("chai").expect;
 
 describe("Tests of Car service", function () {
