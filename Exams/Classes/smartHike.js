@@ -58,7 +58,7 @@ class SmartHike {
             let string = '';
             string += 'All hiking records:';
             for (const hike of this.listOfHikes) {
-                string += `\n${this.username} hiked ${hike.peak} for ${hike.time} hours\n`
+                string += `\n${this.username} hiked ${hike.peak} for ${hike.time} hours`
             }
             return string;
         }
