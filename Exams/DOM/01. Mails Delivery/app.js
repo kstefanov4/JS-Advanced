@@ -1,11 +1,10 @@
-'use strict'
 function solve() {
     document.getElementById('add').addEventListener('click', add);
     document.getElementById('reset').addEventListener('click', reset);
 
     function add(event) {
         event.preventDefault();
-        
+
         let input = {
             recipient: document.getElementById('recipientName'),
             title: document.getElementById('title'),
@@ -22,7 +21,7 @@ function solve() {
         let title = input.title.value;
         let message = input.message.value;
 
-        if (recipient == '' || title == '' || message == ''){
+        if (recipient == '' || title == '' || message == '') {
             return;
         }
 
@@ -33,17 +32,18 @@ function solve() {
         <div id="list-action">
             <button type="submit" id="send">Send</button>
             <button type="submit" id="delete">Delete</button>
-        </div>`
+        </div>`;
         lists.mailsList.appendChild(li);
+
         reset();
-        
+
         li.getElementsByTagName('button')[0]
-        .addEventListener('click',send);
+            .addEventListener('click', send);
 
         li.getElementsByTagName('button')[1]
-        .addEventListener('click',mailDelete);
+            .addEventListener('click', mailDelete);
 
-        function send(){
+        function send() {
             li.innerHTML = `<span>To: ${recipient}</span>
             <span>Title: ${title}</span>
             <div class="btn">
@@ -52,26 +52,16 @@ function solve() {
             lists.sentMails.appendChild(li);
 
             li.getElementsByClassName('delete')[0]
-            .addEventListener('click', mailDelete);
-
-            // function mailInternalDeletea(){
-            //     let deleteInternalLi = document.createElement('li');
-            //     deleteInternalLi.innerHTML = `<span>To: ${recipient}</span>
-            //     <span>Title: ${title}</span>`;
-            //     lists.deletedMails.appendChild(deleteInternalLi);
-            //     sentListLi.remove(); 
-            // }
+                .addEventListener('click', mailDelete);
         }
 
-        function mailDelete(){
+        function mailDelete() {
             li.innerHTML = `<span>To: ${recipient}</span>
             <span>Title: ${title}</span>`;
             lists.deletedMails.appendChild(li);
-             
-        }    
-    }
 
-    
+        }
+    }
 
     function reset() {
         document.getElementById('recipientName').value = '';
